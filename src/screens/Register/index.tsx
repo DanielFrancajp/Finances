@@ -26,6 +26,9 @@ export function Register() {
                 <Input
                     placeholder="Preço"
                 />
+                <Input
+                    placeholder="Teste git"
+                />
             </Form>
         </Container>
     )
