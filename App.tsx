@@ -1,5 +1,6 @@
-import React from "react";
-import AppLoading from "expo-app-loading";
+import React, { useEffect } from "react";
+//import AppLoading from "expo-app-loading";
+import * as SplashScreen from 'expo-splash-screen';
 import { ThemeProvider } from 'styled-components'
 
 import {
@@ -14,6 +15,8 @@ import theme from './src/global/styles/themes';
 
 import { Register } from './src/screens/Register';
 
+SplashScreen.preventAutoHideAsync();
+
 export default function App() {
 
   const [fontsLoaded] = useFonts({
@@ -24,9 +27,15 @@ export default function App() {
 
   });
 
-  if (!fontsLoaded) {
+  useEffect(() => {
+    if(fontsLoaded){
+      SplashScreen.hideAsync();
+    }
+},[fontsLoaded])
+
+  /*if (!fontsLoaded) {
     return <AppLoading />
-  }
+  }*/
 
   return (
 

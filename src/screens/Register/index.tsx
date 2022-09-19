@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useEffect } from "react";
+import * as SplashScreen from 'expo-splash-screen';
 
-import { Input } from "../../components/Form/Input/Index";
-import { Button } from "../../components/Form/Button/";
+import { Input } from "../../components/Form/Input";
+import { Button } from "../../components/Form/Button";
 
 import {
     Container,
@@ -11,6 +12,11 @@ import {
 } from './styles'
 
 export function Register() {
+
+    useEffect(() => {
+        SplashScreen.hideAsync();
+    },[])
+
     return (
         <Container>
             <Header>
