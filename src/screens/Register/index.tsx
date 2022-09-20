@@ -4,6 +4,7 @@ import * as SplashScreen from 'expo-splash-screen';
 import { Input } from "../../components/Form/Input";
 import { Button } from "../../components/Form/Button";
 import { TransactionTypeButton } from "../../components/Form/TransactionTypeButton";
+import { CategorySelect } from "../../components/Form/CategorySelect";
 
 
 import {
@@ -58,6 +59,7 @@ export function Register() {
 
                         />
                     </TransactionsType>
+                    <CategorySelect title ={'Categoria'}/>
 
                 </Fields>
 
