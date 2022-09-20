@@ -34,7 +34,9 @@ export function TransactionTypeButton({
          type={type}
          {...rest}
          >
-            <Icon name={icons[type]} />
+            <Icon name={icons[type]}
+                type={type}
+            />
             <Title>
                 {title}
             </Title>
