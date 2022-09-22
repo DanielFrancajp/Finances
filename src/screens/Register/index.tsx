@@ -18,12 +18,16 @@ import {
 
 export function Register() {
 
+<<<<<<< Updated upstream
     const [transactionType, setTransactionType] = useState('')
 
     function handleTransactionsTypeSelect(type: 'up' | 'down') {
         setTransactionType(type);
     }
 
+=======
+   
+>>>>>>> Stashed changes
 
     return (
         <Container>
