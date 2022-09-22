@@ -13,7 +13,7 @@ import {
 
 import theme from './src/global/styles/themes';
 
-import { Register } from './src/screens/Register';
+import { CategorySelect } from './src/screens/CategorySelect';
 
 SplashScreen.preventAutoHideAsync();
 
@@ -40,7 +40,7 @@ export default function App() {
   return (
 
     <ThemeProvider theme={theme}>
-      <Register />
+      <CategorySelect />
     </ThemeProvider>
 
   )
