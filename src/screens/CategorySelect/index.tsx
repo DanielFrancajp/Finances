@@ -26,7 +26,7 @@ interface Props {
     closeSelectCategory: () => void;
 }
 
-export function CategorySelect({
+export function CategorySelectButton({
     category,
     setCategory,
     closeSelectCategory,

@@ -12,8 +12,9 @@ import {
 } from '@expo-google-fonts/poppins';
 
 import theme from './src/global/styles/themes';
+import  {Register}  from "./src/screens/Register";
 
-import { CategorySelect } from './src/screens/CategorySelect';
+
 
 SplashScreen.preventAutoHideAsync();
 
@@ -28,10 +29,10 @@ export default function App() {
   });
 
   useEffect(() => {
-    if(fontsLoaded){
+    if (fontsLoaded) {
       SplashScreen.hideAsync();
     }
-},[fontsLoaded])
+  }, [fontsLoaded])
 
   /*if (!fontsLoaded) {
     return <AppLoading />
@@ -40,7 +41,7 @@ export default function App() {
   return (
 
     <ThemeProvider theme={theme}>
-      <CategorySelect />
+      <Register/>
     </ThemeProvider>
 
   )

@@ -1,10 +1,12 @@
 import React, { useState } from "react";
+import { Modal } from "react-native";
 import * as SplashScreen from 'expo-splash-screen';
+
 
 import { Input } from "../../components/Form/Input";
 import { Button } from "../../components/Form/Button";
 import { TransactionTypeButton } from "../../components/Form/TransactionTypeButton";
-import { CategorySelect } from "../../components/Form/CategorySelect";
+import { CategorySelectButton } from "../../components/Form/CategorySelectButton";
 
 
 import {
@@ -22,7 +24,7 @@ export function Register() {
 
     function handleTransactionsTypeSelect(type: 'up' | 'down') {
         setTransactionType(type);
-    
+    }
 
     return (
         <Container>
@@ -58,7 +60,7 @@ export function Register() {
 
                         />
                     </TransactionsType>
-                    <CategorySelect title ={'Categoria'}/>
+                    <CategorySelectButton title ={'Categoria'}/>
 
                 </Fields>
 
@@ -66,4 +68,4 @@ export function Register() {
             </Form>
         </Container>
     )
-}}
+}
