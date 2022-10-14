@@ -1,8 +1,5 @@
 import React from "react";
-import {
-    TouchableOpacity,
-    Text,
-} from "react-native";
+import { Button } from '../../components/Form/Button'
 import { FlatList } from "react-native";
 import themes from "../../global/styles/themes";
 import { categories } from "../../utils/categories";
@@ -15,7 +12,7 @@ import {
     Icon,
     Name,
     Separator,
-    Footer,
+    Footer
 
 
 } from "./styles";
@@ -59,7 +56,7 @@ export function CategorySelect({
                 renderItem={({ item }) => (
                     <Category
                         onPress={() => handleCategorySelect(item)}
-                        isActive ={category.key === item.key}
+                        isActive={category.key === item.key}
                     >
                         <Icon name={item.icon} />
                         <Name>
@@ -74,18 +71,10 @@ export function CategorySelect({
             />
 
             <Footer>
-                <TouchableOpacity
-                    style={{
-                        width: '100%',
-                        padding: 18,
-                        borderRadius: 5,
-                        alignItems: 'center',
-                        backgroundColor: themes.colors.secondary
-                    }}
-                    onPress={closeSelectCategory} >
-                    <Text style={{ color: '#fff', fontSize: 16 }} >Selecionar</Text>
-                </TouchableOpacity>
-
+                <Button
+                    title="Selecionar"
+                    onPress={closeSelectCategory}
+                />
             </Footer>
 
         </Container>
