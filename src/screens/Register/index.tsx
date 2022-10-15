@@ -5,7 +5,11 @@ import {
     Keyboard,
     Alert
 } from "react-native";
+
+import * as Yup from 'yup';
+import { yupResolver } from '@hookform/resolvers/yup'
 import { useForm } from 'react-hook-form'
+
 import * as SplashScreen from 'expo-splash-screen';
 
 
@@ -31,6 +35,17 @@ interface FormData {
 
 }
 
+const schema = Yup.object().shape({
+    name: Yup
+        .string()
+        .required("Nome é obrigatório!"),
+    amount: Yup
+        .number()
+        .typeError("Informe um valor númerico")
+        .positive('O valor não pode ser negativo')
+        .required('O valor é obrigatório')
+})
+
 export function Register() {
 
     const [transactionType, setTransactionType] = useState('')
@@ -43,9 +58,12 @@ export function Register() {
 
     const {
         control,
-        handleSubmit
+        handleSubmit,
+        formState: { errors }
 
-    } = useForm();
+    } = useForm({
+        resolver: yupResolver(schema)
+    });
 
     function handleTransactionsTypeSelect(type: 'up' | 'down') {
         setTransactionType(type);
@@ -97,12 +115,15 @@ export function Register() {
                             placeholder="Nome"
                             autoCapitalize="sentences"
                             autoCorrect={false}
+                            error={errors.name && errors.name.message}
                         />
                         <InputForm
                             name="amount"
                             control={control}
                             placeholder="Preço"
                             keyboardType="numeric"
+                            error={errors.amount && errors.amount.message}
+
                         />
 
                         <TransactionsType>
