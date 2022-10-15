@@ -24,11 +24,11 @@ export interface TransactionCardProps {
         title: string;
         amount: string;
         category: Category;
-        date: string;
+        data: string;
     }
 }
 
-export function TransactionCard({ data }: Props) {
+export function TransactionCard({ data }: TransactionCardProps) {
     return (
         <Container>
 
@@ -52,7 +52,7 @@ export function TransactionCard({ data }: Props) {
                 </Category>
 
                 <Date>
-                    {data.date}
+                    {data.data}
                 </Date>
             </Footer>
         </Container>

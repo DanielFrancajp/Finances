@@ -77,7 +77,7 @@ export function Register() {
     }
 
     function handleRegister(form: FormData) {
-
+        console.log('entrei aqui')
         if (!transactionType)
             return Alert.alert('Selecione o tipo da transação');
         if (category.key === 'category')
@@ -91,7 +91,7 @@ export function Register() {
             category: category.key
         }
 
-        console.log(data);
+        return data
 
     }
 

@@ -16,19 +16,19 @@ import {
     HighlightCards,
     Transactions,
     Title,
-    TransactionList
+    TransactionList,
+    LogoutButton
 
 } from './styles'
 
-export interface DataListProps extends TransactionCardProps {
-    id: string
-    title: string
-    type: string
-    amount: string
-    category: object
-    name: string
-    data: object
-    }
+export interface DataListProps  {
+    id: string;
+    title: string;
+    type: 'positive' | 'negative';
+    amount: string;
+    category: object;
+    data: string;
+}
 
 export function Dashboard() {
     const data: DataListProps[] = [
@@ -41,7 +41,7 @@ export function Dashboard() {
                 name: 'vendas',
                 icon: 'dollar-sign',
             },
-            date: "13/04/2022"
+            data: "13/04/2022"
 
         },
         {
@@ -53,7 +53,7 @@ export function Dashboard() {
                 name: 'Alimentação',
                 icon: 'shopping-bag',
             },
-            date: "12/04/2022"
+            data: "12/04/2022"
 
         },
         {
@@ -65,7 +65,7 @@ export function Dashboard() {
                 name: 'Casa',
                 icon: 'home',
             },
-            date: "13/04/2022"
+            data: "13/04/2022"
 
         }
     ];
@@ -84,7 +84,9 @@ export function Dashboard() {
                         </User>
 
                     </UserInfo>
-                    <Icon name="power" />
+                    <LogoutButton onPress={() => { }}>
+                        <Icon name="power" />
+                    </LogoutButton>
                 </UserWrapper>
             </Header>
 
@@ -116,8 +118,8 @@ export function Dashboard() {
 
                 <TransactionList
                     data={data}
-                    keyExtractor={item => item.id}
-                    renderItem={({ item }) => <TransactionCard data={item} />}
+                    keyExtractor={(item: DataListProps) => `${item.id}`}
+                    renderItem={({ item }: TransactionCardProps) => <TransactionCard data={item} />}
 
                 />
 
