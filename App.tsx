@@ -1,4 +1,6 @@
 import 'react-native-gesture-handler'
+import 'intl'
+import 'intl/locale-data/jsonp/pt-BR'
 import React, { useEffect } from "react";
 //import AppLoading from "expo-app-loading";
 import * as SplashScreen from 'expo-splash-screen';
@@ -42,12 +44,12 @@ export default function App() {
   }*/
 
   return (
-<GestureHandlerRootView style={{ flex: 1 }}>
-    <ThemeProvider theme={theme}>
-      <NavigationContainer>
-        <AppRoutes />
-      </NavigationContainer>
-    </ThemeProvider>
-</GestureHandlerRootView>
+    <GestureHandlerRootView style={{ flex: 1 }}>
+      <ThemeProvider theme={theme}>
+        <NavigationContainer>
+          <AppRoutes />
+        </NavigationContainer>
+      </ThemeProvider>
+    </GestureHandlerRootView>
   )
 }
