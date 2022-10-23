@@ -1,6 +1,8 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { HighlightCard } from "../../components/HighlightCard";
 import { TransactionCard, TransactionCardProps } from "../../components/HighlightCard/TransactionCard"
+import AsyncStorage from '@react-native-async-storage/async-storage'
+
 
 
 import {
@@ -21,7 +23,7 @@ import {
 
 } from './styles'
 
-export interface DataListProps  {
+export interface DataListProps {
     id: string;
     title: string;
     type: 'positive' | 'negative';
@@ -31,44 +33,24 @@ export interface DataListProps  {
 }
 
 export function Dashboard() {
-    const data: DataListProps[] = [
-        {
-            id: '1',
-            type: 'positive',
-            title: "desenvolvimento de site",
-            amount: "R$6.000,00",
-            category: {
-                name: 'vendas',
-                icon: 'dollar-sign',
-            },
-            data: "13/04/2022"
+    const [data, setData] = useState<DataListProps[]>([]);
 
-        },
-        {
-            id: '2',
-            type: 'negative',
-            title: "Pizza Mestre",
-            amount: "R$ 60,00",
-            category: {
-                name: 'Alimentação',
-                icon: 'shopping-bag',
-            },
-            data: "12/04/2022"
+    async function loadTransaction() {
+        const dataKey = '@gofinances:transactions';
+        const response = await AsyncStorage.getItem(dataKey);
 
-        },
-        {
-            id: '3',
-            type: 'negative',
-            title: "Aluguel da Casa",
-            amount: "R$ 1200,00",
-            category: {
-                name: 'Casa',
-                icon: 'home',
-            },
-            data: "13/04/2022"
+        const transactions = response ? JSON.parse(response) : [];
 
-        }
-    ];
+       // const transactionFormatted = transactions.map();
+
+        setData(transactions)
+    }
+
+    useEffect(() => {
+        loadTransaction();
+
+    }, [])
+
 
     return (
         <Container>
