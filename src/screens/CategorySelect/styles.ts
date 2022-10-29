@@ -31,7 +31,7 @@ export const Title = styled.Text`
     font-family: ${({ theme }) => theme.fonts.regular};
     color: ${({ theme }) => theme.colors.shape};
     font-size: ${RFValue(18)}px;
-}
+
 `;
 
 export const Category = styled.TouchableOpacity<CategoryProps>`
